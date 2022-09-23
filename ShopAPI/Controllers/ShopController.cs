@@ -42,13 +42,13 @@ namespace ShopAPI.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpGet]
         public IActionResult GetAll ()
         {
             return Ok(_shopService.GetAll());
         }
 
-        [HttpPut("{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
             try

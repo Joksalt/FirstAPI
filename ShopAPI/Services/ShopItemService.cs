@@ -12,6 +12,11 @@ namespace ShopAPI.Services
         List<ShopItem> _items = new List<ShopItem>();
         FileStorageService _fileService = new FileStorageService();
 
+        public ShopItemService()
+        {
+            _items = _fileService.Read();
+        }
+
         public void Create(ShopItem shopItem)
         {
             _items.Add(shopItem);

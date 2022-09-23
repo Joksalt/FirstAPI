@@ -20,8 +20,12 @@ namespace ShopAPI.Services
 
         public List<ShopItem> Read()
         {
+            if (!File.Exists(filePath))
+            {
+                File.WriteAllText(filePath, "[]");
+            }
             var fileData = File.ReadAllText(filePath);
-            var items = JsonConvert.DeserializeObject<List<ShopItem>>(filePath);
+            var items = JsonConvert.DeserializeObject<List<ShopItem>>(fileData);
             return items;
         }
     }
