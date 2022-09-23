@@ -1,11 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ShopAPI.Bases;
+using System.ComponentModel.DataAnnotations;
 
 namespace ShopAPI.Models
 {
-    public class ShopItem
+    public class ShopItem : EntityBase
     {
-        [Required]
-        public int Id { get; set; }
         [StringLength(100)]
         public string Name { get; set; }
         [Range(typeof(Decimal), "1", "9999", ErrorMessage = "{0} must be a decimal/number between {1} and {2}.")]

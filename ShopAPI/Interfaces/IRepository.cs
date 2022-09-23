@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopAPI.Bases;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace ShopAPI.Interfaces
 {
-    public interface IRepository
+    public interface IRepository<T> where T : EntityBase
     {
-        //TEntity FindById(params object[] values);
-        //IEnumerable FindAll();
-        //void Insert(TEntity entity);
-        //void Update(TEntity entity);
-        //void Delete(TEntity entity);
+        T GetById(int id);
+        List<T> GetAll();
+        void Create(T entity);
+        void Update(T entity);
+        void Delete(int id);
     }
 }
